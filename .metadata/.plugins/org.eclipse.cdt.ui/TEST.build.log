@@ -1,10 +1,17 @@
-01:02:02 **** Incremental Build of configuration Debug for project TEST ****
+09:13:58 **** Incremental Build of configuration Debug for project TEST ****
 make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\pinkp\Documents\GitHub\ELEC3300\TEST\STM32F103VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TEST.elf
+ 
 arm-none-eabi-size   TEST.elf 
+arm-none-eabi-objdump -h -S  TEST.elf  > "TEST.list"
    text	   data	    bss	    dec	    hex	filename
-   4900	     20	   1572	   6492	   195c	TEST.elf
+   5484	     20	   1580	   7084	   1bac	TEST.elf
 Finished building: default.size.stdout
  
+Finished building: TEST.list
+ 
 
-01:02:03 Build Finished. 0 errors, 0 warnings. (took 245ms)
+09:14:04 Build Finished. 0 errors, 0 warnings. (took 5s.836ms)
 

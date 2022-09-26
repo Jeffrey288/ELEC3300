@@ -41,7 +41,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-
+int ext_led_state = 0;
+uint32_t ext_led_tick = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -197,6 +198,36 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f1xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles EXTI line0 interrupt.
+  */
+void EXTI0_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI0_IRQn 0 */
+	if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_0) != RESET)
+	{
+		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
+
+		if (HAL_GetTick() - ext_led_tick > 75) {
+			ext_led_tick = HAL_GetTick();
+			ext_led_state = !ext_led_state;
+			if (ext_led_state)
+				 HAL_GPIO_WritePin(GPIOA,GPIO_PIN_12,GPIO_PIN_RESET);
+			else
+				 HAL_GPIO_WritePin(GPIOA,GPIO_PIN_12,GPIO_PIN_SET);
+
+//			HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5,GPIO_PIN_RESET);
+		}
+
+		HAL_GPIO_EXTI_Callback(GPIO_PIN_0);
+	}
+  /* USER CODE END EXTI0_IRQn 0 */
+//  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  /* USER CODE BEGIN EXTI0_IRQn 1 */
+
+  /* USER CODE END EXTI0_IRQn 1 */
+}
 
 /* USER CODE BEGIN 1 */
 
