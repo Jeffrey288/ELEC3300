@@ -880,3 +880,6 @@ java.net.UnknownHostException: sw-center.st.com
 	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:251)
 	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:71)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-09-26 09:59:03.381
+!MESSAGE Indexed 'LAB4' (17 sources, 78 headers) in 4.12 sec: 3,761 declarations; 14,285 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.011%)
