@@ -2945,10 +2945,10 @@ int main(void)
 		  break;
 	  default: break;
  8001b48:	e020      	b.n	8001b8c <main+0x154>
-		  LCD_DrawString(100, 100, "Hartanto Kwee Jeffrey is very fat and disgusting. This is very very interesting.");
+		  LCD_DrawString(60, 100, "Hartanto Kwee Jeffrey is very fat and disgusting. This is very very interesting.");
  8001b4a:	4a17      	ldr	r2, [pc, #92]	; (8001ba8 <main+0x170>)
  8001b4c:	2164      	movs	r1, #100	; 0x64
- 8001b4e:	2064      	movs	r0, #100	; 0x64
+ 8001b4e:	203c      	movs	r0, #60	; 0x3c
  8001b50:	f7ff fdb6 	bl	80016c0 <LCD_DrawString>
 		  LCD_DrawEllipse(120, 200, now_SR, now_LR, RED);
  8001b54:	697b      	ldr	r3, [r7, #20]
