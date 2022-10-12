@@ -1,0 +1,44 @@
+18:01:03 **** Incremental Build of configuration Debug for project LAB6 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:190:4: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  190 |    sprintf(buff, "Angle: %d", angle);
+      |    ^~~~~~~
+../Core/Src/main.c:190:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:26:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   25 | #include "math.h"
+  +++ |+#include <stdio.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/main.c:123:11: warning: unused variable 'screen_state' [-Wunused-variable]
+  123 |   uint8_t screen_state = 0;
+      |           ^~~~~~~~~~~~
+../Core/Src/main.c:122:24: warning: unused variable 'now_LR' [-Wunused-variable]
+  122 |   uint32_t now_SR = 0, now_LR = 0;
+      |                        ^~~~~~
+../Core/Src/main.c:122:12: warning: unused variable 'now_SR' [-Wunused-variable]
+  122 |   uint32_t now_SR = 0, now_LR = 0;
+      |            ^~~~~~
+../Core/Src/main.c:121:25: warning: unused variable 'prev_LR' [-Wunused-variable]
+  121 |   uint32_t prev_SR = 0, prev_LR = 0;
+      |                         ^~~~~~~
+../Core/Src/main.c:121:12: warning: unused variable 'prev_SR' [-Wunused-variable]
+  121 |   uint32_t prev_SR = 0, prev_LR = 0;
+      |            ^~~~~~~
+../Core/Src/main.c:120:12: warning: unused variable 'last_tick' [-Wunused-variable]
+  120 |   uint32_t last_tick = HAL_GetTick();
+      |            ^~~~~~~~~
+arm-none-eabi-gcc -o "LAB6.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\pinkp\Documents\GitHub\ELEC3300\LAB6\STM32F103VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB6.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB6.elf
+ 
+arm-none-eabi-size   LAB6.elf 
+arm-none-eabi-objdump -h -S  LAB6.elf  > "LAB6.list"
+   text	   data	    bss	    dec	    hex	filename
+  20344	    120	   1752	  22216	   56c8	LAB6.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB6.list
+ 
+
+18:01:05 Build Finished. 0 errors, 8 warnings. (took 2s.33ms)
+
